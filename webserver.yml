@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+    - name: install httpd
+      yum: name=httpd update_cache=yes state=latest
+    - debug:
+       msg: "httpd installed successfully"
+    - name: start httpd
+      service: name=httpd state=started enabled=yes
+    - debug:
+       msg: "server started in port 80"
